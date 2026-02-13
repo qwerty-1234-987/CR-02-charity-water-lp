@@ -4,44 +4,112 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Charity Water Landing Page</title>
-    <link rel="stylesheet" href="styles.css">
+    <!-- Add a version so the browser loads the newest CSS -->
+    <link rel="stylesheet" href="styles.css?v=8">
 </head>
 <body>
     <!-- Hero Section: This is the main banner at the top of the page -->
     <section class="hero">
-        <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
-        <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
-    </section>
+        <!-- Top bar over the hero image -->
+        <header class="hero-top">
+            <a href="#" class="logo">
+                <span class="logo-icon"></span>
+                <span class="logo-text">charity: water</span>
+            </a>
+            <!-- Simple top navigation buttons -->
+            <nav class="hero-nav">
+                <a href="#" class="nav-link">Our Story</a>
+                <a href="#" class="nav-link">What We Do</a>
+                <a href="#" class="nav-link">Where We Work</a>
+                <a href="#" class="nav-link">How to Help</a>
+            </nav>
+            <div class="hero-links">
+                <a href="#">Sign in</a>
+                <a href="#">Sign up</a>
+            </div>
+        </header>
 
-    <!-- Story Section: This tells the story of the nonprofit -->
-    <section class="story">
-        <h2>Our Story</h2>
-        <p>
-         
-    </section>
+        <!-- Main hero image (full width) -->
+        <img src="img/4891_Ethiopia_2019_CG-.jpg" alt="Smiling child holding a glass of clean water" class="hero-image">
 
-    <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
-        <!-- Section headline -->
-        <h2>Real Impact: Meet Amina</h2>
-        <!-- Container for image and text -->
-        <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
-            <!-- Impact story text -->
+        <!-- Hero content area -->
+        <div class="hero-content">
+            <!-- Main headline -->
+            <h1>Your Donations Matter. Your Effort is Rewarded.</h1>
+            <!-- Subheadline -->
             <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
+                Track your donations, see real-world impact, and help fund clean water projects for families in need.
             </p>
         </div>
     </section>
 
+    <!-- Story Layout: separate text panel and image panel -->
+    <div class="story-layout">
+        <!-- Left panel: impact story text -->
+        <div class="story">
+            <div class="story-content">
+                <h2>Impact Story</h2>
+                <p>
+                    Before, Maria spent hours each day walking long distances to collect unsafe water, leaving little time to care for her family or earn an income. After support from charity: water, clean water is now just steps from her home, giving her time back and peace of mind. Now, she can focus on her children, her work, and building a stronger future for her family.
+                </p>
+            </div>
+        </div>
+
+        <!-- Right panel: image only -->
+        <div class="story-photo">
+            <img src="img/eyJidWNrZXQiOiJkcm9wbWFyayIsImtleSI6IjUyMDQzL2Q4MTVlMGE5MWIwNTlhOTI5ZWExZjViNzEyMjcyOWEwMWJmM2I0MGI1MjBmZjMxNWI5MjQ5OWJlNzNiMjQyNmIvVWdhbmRhLTIwMTgtY2hhcml0eXdhdGVyLWN1YmJ5Z3JhaGFtLTA4ODQuanBnIiwiZWRpdHMiOnsicm.jpg" alt="Community members gathering water" class="story-image">
+        </div>
+    </div>
+
     <!-- Call-to-Action Section: This encourages visitors to take action -->
     <section class="call-to-action">
-        <h2>Make a Difference</h2>
+        <h2>Start a ripple of change</h2>
         <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
-        <a href="#" class="donate-button">Donate Now</a>
+
+        <div class="donation-layout">
+            <!-- Donation image on the left, separate from the donation box -->
+            <img src="img/charity_water_Tanzania_TaraShupePhotography_0195.jpg" alt="People in Tanzania walking with water containers" class="donation-image donation-image-top">
+
+            <!-- Donation amount box moved here from the hero -->
+            <div class="donation-box">
+                <!-- Box heading -->
+                <p class="donation-title">Choose an amount to give per month</p>
+
+                <!-- 6 donation options -->
+                <div class="donation-options">
+                    <a href="#" class="amount-option amount-number is-selected">$5</a>
+                    <a href="#" class="amount-option amount-number">$10</a>
+                    <a href="#" class="amount-option amount-number">$25</a>
+                    <a href="#" class="amount-option amount-option-center amount-number">$50</a>
+                    <a href="#" class="amount-option amount-option-center amount-number">$100</a>
+                    <a href="#" class="amount-option">Other Amount</a>
+                </div>
+
+                <!-- Donate button at the bottom of the donation box -->
+                <a href="#" class="donate-now-button is-selected">Donate Now</a>
+            </div>
+        </div>
     </section>
+
+    <!-- Simple script to toggle selected donation option -->
+    <script>
+        const amountOptions = document.querySelectorAll('.amount-option');
+        const donateButton = document.querySelector('.donate-now-button');
+
+        amountOptions.forEach((option) => {
+            option.addEventListener('click', (event) => {
+                event.preventDefault();
+
+                // Clear previous selection
+                amountOptions.forEach((item) => item.classList.remove('is-selected'));
+
+                // Mark the clicked option as selected
+                option.classList.add('is-selected');
+
+                // Keep the Donate Now button highlighted
+                donateButton.classList.add('is-selected');
+            });
+        });
+    </script>
 </body>
 </html>
